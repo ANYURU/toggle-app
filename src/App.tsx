@@ -1,7 +1,16 @@
-import React from "react";
+import useToggle from "./useToggle";
 
 function App() {
-  return <div className="App"></div>;
+  const [isToggled, toggle] = useToggle();
+
+  return (
+    <div className="App">
+      <button type="button" onClick={toggle}>
+        {isToggled ? "Hide" : "Show"}
+      </button>
+      {isToggled ? <div>This content is hidden! Spoiler!</div> : ""}
+    </div>
+  );
 }
 
 export default App;
